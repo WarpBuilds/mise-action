@@ -1,4 +1,9 @@
-# Example Workflow
+# Mise Action
+
+This is a fork of [jdx/mise-action](https://github.com/jdx/mise-action) which
+uses [WarpBuilds Cache](https://www.warpbuild.com/products/ci-runners).
+
+## Example Workflow
 
 ```yaml
 name: test
@@ -14,11 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: Warpbuilds/mise-action@v2
         with:
           version: 2024.10.0 # [default: latest] mise version to install
           install: true # [default: true] run `mise install`
-          install_args: "bun" # [default: ""] additional arguments to `mise install`
+          install_args: 'bun' # [default: ""] additional arguments to `mise install`
           cache: true # [default: true] cache mise using GitHub's cache
           experimental: true # [default: false] enable experimental features
           log_level: debug # [default: info] log level
@@ -35,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: Warpbuilds/mise-action@v2
       # .tool-versions will be read from repo root
       - run: node ./my_app.js
 ```
@@ -46,8 +51,8 @@ Alternatively, mise is easy to use in GitHub Actions even without this:
 jobs:
   build:
     steps:
-    - run: |
-        curl https://mise.run | sh
-        echo "$HOME/.local/share/mise/bin" >> $GITHUB_PATH
-        echo "$HOME/.local/share/mise/shims" >> $GITHUB_PATH
+      - run: |
+          curl https://mise.run | sh
+          echo "$HOME/.local/share/mise/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/share/mise/shims" >> $GITHUB_PATH
 ```
