@@ -32,7 +32,7 @@ async function cacheMiseTools(): Promise<void> {
   }
 
   const cacheId = await cache.saveCache([cachePath], primaryKey)
-  if (cacheId === -1) return
+  if (cacheId === '') return
 
   core.info(`Cache saved from ${cachePath} with key: ${primaryKey}`)
 }

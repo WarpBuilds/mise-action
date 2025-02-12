@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   build: # make sure build/ci work properly
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-2x
     steps:
       - uses: actions/checkout@v4
       - run: |
@@ -25,9 +25,8 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - macos-latest
-          - ubuntu-latest
-          - windows-latest
+          - warp-macos-14-arm64-6x
+          - warp-ubuntu-latest-x64-2x
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +45,7 @@ jobs:
       - run: . scripts/test.sh
         shell: bash
   specific_version:
-    runs-on: ubuntu-latest
+    runs-on: warp-ubuntu-latest-x64-2x
     steps:
       - uses: actions/checkout@v4
       - name: Setup mise
