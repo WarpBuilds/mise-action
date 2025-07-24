@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@actions/cache": "npm:github-actions.warp-cache@1.4.6",
+    "@actions/cache": "npm:github-actions.warp-cache@1.4.7",
     "@actions/core": "^1.11.1",
     "@actions/exec": "^1.1.1",
     "@actions/glob": "^0.5.0"
